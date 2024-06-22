@@ -1,31 +1,31 @@
-#include <ESP8266WiFi.h> // Include the WiFi library for ESP8266
-#include <PubSubClient.h> // Include the MQTT library for ESP8266
-#include <WiFiClientSecureBearSSL.h> // Include the BearSSL library for secure connections
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+#include <WiFiClientSecureBearSSL.h>
 
 // WiFi parameters
-const char* ssid = "your_SSID_here"; // Enter your WiFi SSID (network name)
-const char* password = "your_password_here"; // Enter your WiFi password
+const char* ssid = "your-ssid";
+const char* password = "your-password";
 
 // AWS IoT Core parameters
-const char* awsEndpoint = "your_aws_endpoint_here"; // Enter your AWS IoT endpoint
-const int awsPort = 8883; // AWS IoT port for secure MQTT communication
+const char* awsEndpoint = "your-aws-endpoint"; // replace with your AWS IoT endpoint
+const int awsPort = 8883;
 
-// Certificates and keys (enter your own AWS IoT certificates and private key)
+// Certificates and keys
 const char* awsCert = R"EOF(
 -----BEGIN CERTIFICATE-----
-...Your AWS Device Certificate Here...
+YOUR_DEVICE_CERTIFICATE_CONTENT_HERE
 -----END CERTIFICATE-----
 )EOF";
 
 const char* awsPrivateKey = R"EOF(
 -----BEGIN RSA PRIVATE KEY-----
-...Your AWS Private Key Here...
+YOUR_PRIVATE_KEY_CONTENT_HERE
 -----END RSA PRIVATE KEY-----
 )EOF";
 
 const char* awsRootCA = R"EOF(
 -----BEGIN CERTIFICATE-----
-...Your AWS Root CA Here...
+YOUR_ROOT_CA_CONTENT_HERE
 -----END CERTIFICATE-----
 )EOF";
 
@@ -80,9 +80,27 @@ void connectAWS() {
   }
 }
 
+// Time synchronization function
+void NTPConnect() {
+  Serial.print("Setting time using SNTP");
+  configTime(8 * 3600, 0, "my.pool.ntp.org", "time.nist.gov"); // UTC+8
+  time_t now = time(nullptr);
+  while (now < 8 * 3600) {
+    delay(500);
+    Serial.print(".");
+    now = time(nullptr);
+  }
+  Serial.println(" done!");
+  struct tm timeinfo;
+  localtime_r(&now, &timeinfo);
+  Serial.print("Current time: ");
+  Serial.print(asctime(&timeinfo));
+}
+
 void setup() {
   Serial.begin(115200); // Initialize serial communication at 115200 baud
   setupWiFi(); // Setup WiFi connection
+  NTPConnect(); // Synchronize time using NTP
   connectAWS(); // Connect to AWS IoT Core
 }
 
