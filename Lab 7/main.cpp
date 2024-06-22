@@ -22,22 +22,22 @@ const int awsPort = 8883; // AWS IoT port
 const char* controlTopic = "ESP8266/control/led"; // MQTT topic for controlling the LED
 const char* statusTopic = "ESP8266/status/led"; // MQTT topic for LED status
 
-// Certificates and keys (shortened for brevity)
+// Certificates and keys
 const char* awsCert = R"EOF(
 -----BEGIN CERTIFICATE-----
-MIIDWjCCAkKgAwIBAgIVAPPeg5A+B2j...
+YOUR_CERTIFICATE_CONTENT_HERE
 -----END CERTIFICATE-----
 )EOF";
 
 const char* awsPrivateKey = R"EOF(
 -----BEGIN RSA PRIVATE KEY-----
-MIIEpQIBAAKCAQEAqXUd3i2aZ7Pkgn5r...
+YOUR_PRIVATE_KEY_CONTENT_HERE
 -----END RSA PRIVATE KEY-----
 )EOF";
 
 const char* awsRootCA = R"EOF(
 -----BEGIN CERTIFICATE-----
-MIIDQTCCAimgAwIBAgITBmyfz5m/jAo54...
+YOUR_ROOT_CA_CONTENT_HERE
 -----END CERTIFICATE-----
 )EOF";
 
