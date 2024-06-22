@@ -16,7 +16,7 @@ const char* subscribeTopic = "aws/messages"; // MQTT topic to subscribe to messa
 // Device Certificate
 const char* awsCert = R"EOF(
 -----BEGIN CERTIFICATE-----
-YOUR_CERTIFICATE_CONTENT_HERE
+YOUR_DEVICE_CERTIFICATE_CONTENT_HERE
 -----END CERTIFICATE-----
 )EOF";
 
