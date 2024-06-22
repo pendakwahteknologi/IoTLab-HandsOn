@@ -22,25 +22,22 @@ const int awsPort = 8883;
 const char* controlTopic = "ESP8266/control/led";
 const char* statusTopic = "ESP8266/status/led";
 
-// Certificates and keys (shortened for brevity)
+// Certificates and keys
 const char* awsCert = R"EOF(
 -----BEGIN CERTIFICATE-----
-MIIDWTCCAkGgAwIBAgIUVSG4EapV168II8TT8dLy8fpCMKwwDQYJKoZIhvcNAQEL
-...
+YOUR_CERTIFICATE_CONTENT_HERE
 -----END CERTIFICATE-----
 )EOF";
 
 const char* awsPrivateKey = R"EOF(
 -----BEGIN RSA PRIVATE KEY-----
-MIIEowIBAAKCAQEAwXEizCZ/kKuDLYFyqM+ltgUug7sk5MncUsTXgqpLGQ1gwp4l
-...
+YOUR_PRIVATE_KEY_CONTENT_HERE
 -----END RSA PRIVATE KEY-----
 )EOF";
 
 const char* awsRootCA = R"EOF(
 -----BEGIN CERTIFICATE-----
-MIIDQTCCAimgAwIBAgITBmyfz5m/jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsF
-...
+YOUR_ROOT_CA_CONTENT_HERE
 -----END CERTIFICATE-----
 )EOF";
 
