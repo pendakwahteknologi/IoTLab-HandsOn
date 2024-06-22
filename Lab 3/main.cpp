@@ -1,6 +1,6 @@
-#include <ESP8266WiFi.h>
-#include <PubSubClient.h>
-#include <WiFiClientSecureBearSSL.h>
+#include <ESP8266WiFi.h> // Library for managing WiFi connections on the ESP8266
+#include <PubSubClient.h> // Library for MQTT communication, allowing the ESP8266 to publish and subscribe to MQTT topics
+#include <WiFiClientSecureBearSSL.h> // Library for establishing secure WiFi connections using BearSSL, necessary for secure communication with AWS IoT Core
 
 // WiFi parameters
 const char* ssid = "your-ssid";
