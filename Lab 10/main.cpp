@@ -1,5 +1,5 @@
-#define BLYNK_TEMPLATE_ID "YourTemplateID"
-#define BLYNK_TEMPLATE_NAME "YourTemplateNAME"
+#define BLYNK_TEMPLATE_ID "YourTemplateID" // Replace with your Blynk template ID
+#define BLYNK_TEMPLATE_NAME "YourTemplateName" // Replace with your Blynk template name
 
 #include <ESP8266WiFi.h> // Library for managing WiFi connections on the ESP8266
 #include <BlynkSimpleEsp8266.h> // Library for Blynk functionality
@@ -25,7 +25,7 @@ const char* statusTopic = "ESP8266/status/relay"; // Topic for relay status
 // AWS IoT certificates and keys
 const char* awsCert = R"EOF(
 -----BEGIN CERTIFICATE-----
-<Your AWS Certificate Here>
+<Your AWS Device Certificate Here>
 -----END CERTIFICATE-----
 )EOF";
 
